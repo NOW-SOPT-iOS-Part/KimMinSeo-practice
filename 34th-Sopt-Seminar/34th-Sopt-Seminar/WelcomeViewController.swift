@@ -50,16 +50,6 @@ class WelcomeViewController:UIViewController{
         return button
     }()
     
-    //이전 화면으로 가기
-    @objc
-    private func backToLoginButtonDidTap(){
-        //nav controller 사용시 dismiss 방식
-        if self.navigationController == nil {
-               self.dismiss(animated: true)
-           } else {//그게 아닐 시 pop 방식
-               self.navigationController?.popViewController(animated: true)
-           }
-    }
     
     //데이터 바인딩 함수 구현 -> 옵셔널 바인딩 사용
     private func bindID(){
@@ -82,5 +72,15 @@ class WelcomeViewController:UIViewController{
         bindID()
     }
     
-   
+    //이전 화면으로 가기
+    @objc
+    private func backToLoginButtonDidTap(){
+        //nav controller 사용시 dismiss 방식
+        if self.navigationController == nil {
+               self.dismiss(animated: true)
+           } else {//그게 아닐 시 pop 방식
+               self.navigationController?.popViewController(animated: true)
+           }
+    }
+    
 }
