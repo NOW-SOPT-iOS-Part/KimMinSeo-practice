@@ -10,7 +10,7 @@ import UIKit
 
 class WelcomeViewController:UIViewController{
     
-    var id: String?
+    private var id: String?
     
     private let imageView : UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 112, y: 87, width: 150, height: 150))
