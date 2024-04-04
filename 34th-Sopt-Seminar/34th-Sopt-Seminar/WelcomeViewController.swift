@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-class WelcomeViewController:UIViewController{
+class WelcomeViewController: UIViewController {
     
     private var id: String?
     
-    private let imageView : UIImageView = {
+    private let imageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 112, y: 87, width: 150, height: 150))
         imageView.image = UIImage(named:"puppy.png")
         
@@ -25,7 +25,7 @@ class WelcomeViewController:UIViewController{
         label.textColor = .black
         label.textAlignment = .center
         label.numberOfLines = 2
-        label.font = UIFont(name:"Pretendard-ExtraBold",size:25)
+        label.font = UIFont(name: "Pretendard-ExtraBold", size:25)
         return label
     }()
   
@@ -34,7 +34,7 @@ class WelcomeViewController:UIViewController{
         button.backgroundColor = UIColor(red: 255/255, green: 111/255, blue: 15/255, alpha: 1)
         button.setTitle("메인으로", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont(name:"Pretendard-Bold",size:18)
+        button.titleLabel?.font = UIFont(name: "Pretendard-Bold", size:18)
         button.layer.cornerRadius = 6
         return button
     }()
@@ -45,27 +45,27 @@ class WelcomeViewController:UIViewController{
         button.setTitle("다시 로그인", for: .normal)
         button.setTitleColor(UIColor(red: 172/255, green: 176/255, blue: 185/255, alpha: 1), for: .normal)
         button.layer.cornerRadius = 6
-        button.titleLabel?.font = UIFont(name:"Pretendard-Bold",size:18)
+        button.titleLabel?.font = UIFont(name: "Pretendard-Bold", size:18)
         button.addTarget(self, action: #selector(backToLoginButtonDidTap), for:.touchUpInside)
         return button
     }()
     
     
     //데이터 바인딩 함수 구현 -> 옵셔널 바인딩 사용
-    private func bindID(){
+    private func bindID() {
         guard let idText = id else { return }
         self.welcomeLabel.text="\(idText)님 \n반가워요!"
     }
     
     func setLabelText(id: String?) {
-            self.id = id
-        }
+        self.id = id
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
-        [imageView,welcomeLabel,mainButton,backTologinButton].forEach{
+        [imageView, welcomeLabel, mainButton, backTologinButton].forEach{
             self.view.addSubview($0)
         }
         
