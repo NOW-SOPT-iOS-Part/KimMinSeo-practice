@@ -25,6 +25,7 @@
 		0D80C5492BB94A4200027B14 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D80C5402BB94A4200027B14 /* Pretendard-Thin.otf */; };
 		0D80C54B2BB9518400027B14 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80C54A2BB9518400027B14 /* WelcomeViewController.swift */; };
 		0D80C54E2BB9520B00027B14 /* puppy.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D80C54D2BB9520B00027B14 /* puppy.png */; };
+		0D9F30DB2BBFEA4000EC02F2 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 0D9F30DA2BBFEA4000EC02F2 /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D9F30DB2BBFEA4000EC02F2 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +137,9 @@
 			dependencies = (
 			);
 			name = "34th-Sopt-Seminar";
+			packageProductDependencies = (
+				0D9F30DA2BBFEA4000EC02F2 /* Then */,
+			);
 			productName = "34th-Sopt-Seminar";
 			productReference = 0D80C51E2BB9458D00027B14 /* 34th-Sopt-Seminar.app */;
 			productType = "com.apple.product-type.application";
@@ -163,6 +168,9 @@
 				Base,
 			);
 			mainGroup = 0D80C5152BB9458D00027B14;
+			packageReferences = (
+				0D9F30D92BBFEA4000EC02F2 /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			productRefGroup = 0D80C51F2BB9458D00027B14 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -425,6 +433,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0D9F30D92BBFEA4000EC02F2 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0D9F30DA2BBFEA4000EC02F2 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0D9F30D92BBFEA4000EC02F2 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0D80C5162BB9458D00027B14 /* Project object */;
 }
