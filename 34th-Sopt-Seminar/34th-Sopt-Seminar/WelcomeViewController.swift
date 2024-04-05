@@ -38,7 +38,7 @@ class WelcomeViewController: UIViewController {
         //메인으로 가는 버튼
         mainButton.do{
             $0.frame = CGRect(x: 20, y: 426, width: 335, height: 58)
-            $0.backgroundColor = UIColor(red: 255/255, green: 111/255, blue: 15/255, alpha: 1)
+            $0.backgroundColor = UIColor(resource: .primaryOrange)
             $0.setTitle("메인으로", for: .normal)
             $0.setTitleColor(.white, for: .normal)
             $0.layer.cornerRadius = 6
@@ -47,9 +47,9 @@ class WelcomeViewController: UIViewController {
         //로그인으로 되돌아가기 버튼
         backToLoginButton.do{
             $0.frame = CGRect(x: 20, y: 498, width: 335, height: 58)
-            $0.backgroundColor = UIColor(red: 221/255, green: 222/255, blue: 227/255, alpha: 1)
+            $0.backgroundColor = UIColor(resource: .grey200)
             $0.setTitle("다시 로그인", for: .normal)
-            $0.setTitleColor(UIColor(red: 172/255, green: 176/255, blue: 185/255, alpha: 1), for: .normal)
+            $0.setTitleColor(UIColor(resource: .grey300), for: .normal)
             $0.layer.cornerRadius = 6
             $0.titleLabel?.font = UIFont(name: "Pretendard-Bold", size: 18)
             $0.addTarget(self, action: #selector(backToLoginButtonDidTap), for: .touchUpInside)

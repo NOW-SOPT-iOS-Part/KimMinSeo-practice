@@ -33,7 +33,7 @@ class LoginViewController: UIViewController{
             $0.frame = CGRect(x: 20, y: 276, width: 335, height: 52)
             $0.placeholder = "아이디"
             $0.font = UIFont(name: "Pretendard-Medium", size: 14)
-            $0.backgroundColor = UIColor(red: 221/255, green: 222/255, blue: 227/255, alpha: 1)
+            $0.backgroundColor = UIColor(resource: .grey200)
             $0.layer.cornerRadius = 3
             let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 23, height: $0.frame.height))
             $0.leftView = paddingView
@@ -45,7 +45,7 @@ class LoginViewController: UIViewController{
             $0.frame = CGRect(x: 20, y: 335, width: 335, height: 52)
             $0.placeholder = "비밀번호"
             $0.font = UIFont(name: "Pretendard-Medium", size: 14)
-            $0.backgroundColor = UIColor(red: 221/255, green: 222/255, blue: 227/255, alpha: 1)
+            $0.backgroundColor = UIColor(resource: .grey200)
             $0.layer.cornerRadius = 3
             let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 23, height: $0.frame.height))
             $0.leftView = paddingView
@@ -55,7 +55,7 @@ class LoginViewController: UIViewController{
         //로그인 입력창
         loginButton.do {
             $0.frame = CGRect(x: 21, y: 422, width: 332, height: 58)
-            $0.backgroundColor = UIColor(red: 255/255, green: 111/255, blue: 15/255, alpha: 1)
+            $0.backgroundColor = UIColor(resource: .primaryOrange)
             $0.setTitle("로그인하기", for: .normal)
             $0.setTitleColor(.white, for: .normal)
             $0.titleLabel?.font = UIFont(name: "Pretendard-Bold", size: 18)
