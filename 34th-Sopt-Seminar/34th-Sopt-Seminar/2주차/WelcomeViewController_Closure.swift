@@ -9,7 +9,19 @@ import Foundation
 import UIKit
 import Then
 
-final class WelcomeViewController: UIViewController {
+final class WelcomeViewController_Closure: UIViewController {
+    
+    //typealias는 타입에 붙일 수 있는 별칭
+    //typealias handler = ((String) -> (Void))
+    //var completionHandler: handler?
+    //위에 두 줄이 아래 줄과 같은 역할을 하는 코드
+
+    //String을 갖고 어떠한 행동을 담기위해 클로저를 생성
+    var completionHandler: ((String) -> (Void))?
+
+    
+        
+    //var completionHandler: handler?
     
     private var id: String?
     
@@ -18,50 +30,16 @@ final class WelcomeViewController: UIViewController {
     private lazy var mainButton = UIButton()
     private lazy var backToLoginButton = UIButton()
     
-    private func setLayout() {
-        [imageView, welcomeLabel, mainButton, backToLoginButton].forEach { [weak self] view in
-            guard let self = self else { return }
-            self.view.addSubview(view)
-        }
-        
-        imageView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(87)
-            $0.leading.equalToSuperview().inset(112)
-            $0.trailing.equalToSuperview().inset(113)
-            $0.width.equalTo(150)
-            $0.height.equalTo(150)
-        }
-        
-        welcomeLabel.snp.makeConstraints {
-            $0.top.equalTo(imageView.snp.bottom).offset(58)
-            $0.leading.equalToSuperview().inset(140)
-            $0.trailing.equalToSuperview().inset(140)
-        }
-        
-        mainButton.snp.makeConstraints {
-            $0.top.equalTo(welcomeLabel.snp.bottom).offset(71)
-            $0.leading.equalToSuperview().inset(20)
-            $0.trailing.equalToSuperview().inset(20)
-            $0.height.equalTo(58)
-        }
-        
-        backToLoginButton.snp.makeConstraints {
-            $0.top.equalTo(mainButton.snp.bottom).offset(14)
-            $0.leading.equalToSuperview().inset(20)
-            $0.trailing.equalToSuperview().inset(20)
-            $0.height.equalTo(58)
-        }
-        
-    }
-    
     func setStyle(){
         //이미지
-        imageView.do {
+        imageView.do{
+            $0.frame = CGRect(x: 112, y: 87, width: 150, height: 150)
             $0.image = UIImage(named: "puppy.png")
         }
         
         //환영 텍스트
-        welcomeLabel.do {
+        welcomeLabel.do{
+            $0.frame = CGRect(x: 140, y: 295, width: 95, height: 60)
             $0.text = "???님\n반가워요!"
             $0.textColor = .black
             $0.textAlignment = .center
@@ -70,7 +48,8 @@ final class WelcomeViewController: UIViewController {
         }
         
         //메인으로 가는 버튼
-        mainButton.do {
+        mainButton.do{
+            $0.frame = CGRect(x: 20, y: 426, width: 335, height: 58)
             $0.backgroundColor = UIColor(resource: .primaryOrange)
             $0.setTitle("메인으로", for: .normal)
             $0.setTitleColor(.white, for: .normal)
@@ -78,7 +57,8 @@ final class WelcomeViewController: UIViewController {
             $0.titleLabel?.font = UIFont(name: "Pretendard-Bold", size: 18)
         }
         //로그인으로 되돌아가기 버튼
-        backToLoginButton.do {
+        backToLoginButton.do{
+            $0.frame = CGRect(x: 20, y: 498, width: 335, height: 58)
             $0.backgroundColor = UIColor(resource: .grey200)
             $0.setTitle("다시 로그인", for: .normal)
             $0.setTitleColor(UIColor(resource: .grey300), for: .normal)
@@ -106,7 +86,6 @@ final class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         
         setStyle()
-        setLayout()
         self.view.backgroundColor = .white
         [imageView, welcomeLabel, mainButton, backToLoginButton].forEach{
             self.view.addSubview($0)
@@ -118,13 +97,10 @@ final class WelcomeViewController: UIViewController {
 
     //이전 화면으로 가기
     @objc
-    private func backToLoginButtonDidTap(){
-        //nav controller 사용시 dismiss 방식
-        if self.navigationController == nil {
-               self.dismiss(animated: true)
-           } else {//그게 아닐 시 pop 방식
-               self.navigationController?.popViewController(animated: true)
-           }
+    private func backToLoginButtonDidTap() {
+        guard let id else { return }
+        completionHandler?(id)
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
