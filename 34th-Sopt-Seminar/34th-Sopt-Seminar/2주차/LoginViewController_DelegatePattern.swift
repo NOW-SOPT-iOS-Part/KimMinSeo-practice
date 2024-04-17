@@ -9,13 +9,7 @@ import Foundation
 import UIKit
 import Then//Then 라이브러리
 
-final class LoginViewController_DelegatePattern: UIViewController, DataBindProtocol{
-    
-    func dataBind(id: String?) {
-        idTextField.text = "\(id)에서 어떤걸로 할꺼얌?"
-    }
-
-    
+final class LoginViewController_DelegatePattern: UIViewController {
     //UILabel
     private let titleLabel = UILabel()
     private let idTextField = UITextField()
@@ -73,13 +67,13 @@ final class LoginViewController_DelegatePattern: UIViewController, DataBindProto
         
     }
 
-    
    
     @objc
     private func loginButtonDidTap() {
         presentToWelcomeVC()
         //pushToWelcomeVC()
     }
+    
     
     
     //모달 방식
@@ -92,8 +86,8 @@ final class LoginViewController_DelegatePattern: UIViewController, DataBindProto
     
     //네비게이션 방식
     private func pushToWelcomeVC(){
-        let welcomeViewController = WelcomeViewController()
-        //welcomeViewController.id = idTextField.text
+        let welcomeViewController = WelcomeViewController_DelegatePattern()
+        welcomeViewController.delegate = self
         welcomeViewController.setLabelText(id: idTextField.text)
         self.navigationController?
             .pushViewController(welcomeViewController, animated:true)
@@ -108,5 +102,11 @@ final class LoginViewController_DelegatePattern: UIViewController, DataBindProto
             self.view.addSubview($0)
         }
         
+    }
+}
+
+extension LoginViewController_DelegatePattern: DataBindProtocol {
+    func dataBind(id: String?) {
+        idTextField.text = id
     }
 }
