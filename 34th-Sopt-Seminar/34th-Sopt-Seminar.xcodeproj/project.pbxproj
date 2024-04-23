@@ -33,6 +33,12 @@
 		0D80C54B2BB9518400027B14 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80C54A2BB9518400027B14 /* WelcomeViewController.swift */; };
 		0D80C54E2BB9520B00027B14 /* puppy.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D80C54D2BB9520B00027B14 /* puppy.png */; };
 		0D9F30DB2BBFEA4000EC02F2 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 0D9F30DA2BBFEA4000EC02F2 /* Then */; };
+		0DF88E1E2BD3A63E009EE9F3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF88E1D2BD3A63E009EE9F3 /* ChatViewController.swift */; };
+		0DF88E202BD3A65E009EE9F3 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF88E1F2BD3A65E009EE9F3 /* ChatTableViewCell.swift */; };
+		0DF88E222BD3A67C009EE9F3 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF88E212BD3A67C009EE9F3 /* ChatModel.swift */; };
+		0DF88E272BD3A80A009EE9F3 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF88E262BD3A80A009EE9F3 /* ItemViewController.swift */; };
+		0DF88E292BD3A86B009EE9F3 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF88E282BD3A86B009EE9F3 /* ItemCollectionViewCell.swift */; };
+		0DF88E2B2BD3AA74009EE9F3 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF88E2A2BD3AA74009EE9F3 /* ItemModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +67,12 @@
 		0D80C5402BB94A4200027B14 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Thin.otf"; path = "../../../../../../Downloads/Pretendard-1.3.9/public/static/Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		0D80C54A2BB9518400027B14 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		0D80C54D2BB9520B00027B14 /* puppy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = puppy.png; path = ../../../../../../Downloads/puppy.png; sourceTree = "<group>"; };
+		0DF88E1D2BD3A63E009EE9F3 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		0DF88E1F2BD3A65E009EE9F3 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		0DF88E212BD3A67C009EE9F3 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		0DF88E262BD3A80A009EE9F3 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		0DF88E282BD3A86B009EE9F3 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		0DF88E2A2BD3AA74009EE9F3 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +120,7 @@
 		0D80C5202BB9458D00027B14 /* 34th-Sopt-Seminar */ = {
 			isa = PBXGroup;
 			children = (
+				0DF88E252BD3A7E1009EE9F3 /* 3주차 */,
 				0D4159772BC11A8B0020C0C5 /* 2주차 */,
 				0D80C54C2BB951E000027B14 /* assets */,
 				0D80C5372BB949C200027B14 /* font */,
@@ -147,6 +160,20 @@
 				0D80C54D2BB9520B00027B14 /* puppy.png */,
 			);
 			path = assets;
+			sourceTree = "<group>";
+		};
+		0DF88E252BD3A7E1009EE9F3 /* 3주차 */ = {
+			isa = PBXGroup;
+			children = (
+				0DF88E1D2BD3A63E009EE9F3 /* ChatViewController.swift */,
+				0DF88E1F2BD3A65E009EE9F3 /* ChatTableViewCell.swift */,
+				0DF88E212BD3A67C009EE9F3 /* ChatModel.swift */,
+				0DF88E262BD3A80A009EE9F3 /* ItemViewController.swift */,
+				0DF88E282BD3A86B009EE9F3 /* ItemCollectionViewCell.swift */,
+				0DF88E2A2BD3AA74009EE9F3 /* ItemModel.swift */,
+			);
+			name = "3주차";
+			path = "3주차";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,15 +266,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DF88E292BD3A86B009EE9F3 /* ItemCollectionViewCell.swift in Sources */,
 				0D4159792BC11B4D0020C0C5 /* LoginViewController_Closure.swift in Sources */,
 				0D80C5362BB9479400027B14 /* LoginViewController.swift in Sources */,
+				0DF88E1E2BD3A63E009EE9F3 /* ChatViewController.swift in Sources */,
 				0D80C54B2BB9518400027B14 /* WelcomeViewController.swift in Sources */,
 				0D4159762BC114920020C0C5 /* WelcomeViewController_DelegatePattern.swift in Sources */,
 				0D4159742BC114790020C0C5 /* LoginViewController_DelegatePattern.swift in Sources */,
 				0D80C5262BB9458D00027B14 /* ViewController.swift in Sources */,
+				0DF88E272BD3A80A009EE9F3 /* ItemViewController.swift in Sources */,
 				0D80C5222BB9458D00027B14 /* AppDelegate.swift in Sources */,
+				0DF88E2B2BD3AA74009EE9F3 /* ItemModel.swift in Sources */,
 				0D4159822BC133970020C0C5 /* ScrollViewController.swift in Sources */,
+				0DF88E202BD3A65E009EE9F3 /* ChatTableViewCell.swift in Sources */,
 				0D41597B2BC11B5F0020C0C5 /* WelcomeViewController_Closure.swift in Sources */,
+				0DF88E222BD3A67C009EE9F3 /* ChatModel.swift in Sources */,
 				0D80C5242BB9458D00027B14 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -104,8 +104,7 @@ final class LoginViewController: UIViewController{
    
     @objc
     private func loginButtonDidTap() {
-        presentToWelcomeVC()
-        //pushToWelcomeVC()
+        pushToWelcomeVC()
     }
     
     
