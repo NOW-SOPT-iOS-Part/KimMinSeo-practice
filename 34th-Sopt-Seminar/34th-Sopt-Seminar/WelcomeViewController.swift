@@ -76,6 +76,7 @@ final class WelcomeViewController: UIViewController {
             $0.setTitleColor(.white, for: .normal)
             $0.layer.cornerRadius = 6
             $0.titleLabel?.font = UIFont(name: "Pretendard-Bold", size: 18)
+            $0.addTarget(self, action: #selector(mainButtonDidTap), for: .touchUpInside)
         }
         //로그인으로 되돌아가기 버튼
         backToLoginButton.do {
@@ -88,8 +89,17 @@ final class WelcomeViewController: UIViewController {
             
         }
     }
+    @objc
+    private func mainButtonDidTap() {
+        pushToWelcomeVC()
+    }
     
-   
+    //네비게이션 방식
+    private func pushToWelcomeVC(){
+        let ItemViewController = ItemViewController()
+        self.navigationController?
+            .pushViewController(ItemViewController, animated:true)
+    }
     
     //데이터 바인딩 함수 구현 -> 옵셔널 바인딩 사용
     private func bindID() {

@@ -31,7 +31,10 @@ class ChatTableViewCell: UITableViewCell {
     private let itemImageView = UIImageView()
     
     func setStyle() {
-        //타이틀 텍스트
+        profileImageView.do {
+            $0.layer.cornerRadius = 20
+            $0.clipsToBounds = true
+        }
         nameLabel.do {
             $0.text = "타마마★"
             $0.textColor = .black
@@ -82,9 +85,9 @@ class ChatTableViewCell: UITableViewCell {
             $0.bottom.equalTo(profileImageView.snp.bottom)
         }
         itemImageView.snp.makeConstraints {
-                    $0.trailing.bottom.equalToSuperview().inset(16)
-                    $0.size.equalTo(40)
-                }
+            $0.trailing.bottom.equalToSuperview().inset(16)
+            $0.size.equalTo(40)
+        }
     }
     
 }

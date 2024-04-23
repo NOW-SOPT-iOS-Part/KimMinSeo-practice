@@ -13,7 +13,8 @@ final class ItemViewController: UIViewController {
     private func calculateCellHeight() -> CGFloat {
         let count = CGFloat(itemData.count)
         let heightCount = count / 2 + count.truncatingRemainder(dividingBy: 2)
-        return heightCount * cellHeight + (heightCount - 1) * carrotLineSpacing + carrotInset.top + carrotInset.bottom
+        return heightCount * cellHeight + (heightCount - 1) * carrotLineSpacing
+                + carrotInset.top + carrotInset.bottom
     }
     
     private let collectionView: UICollectionView = {
@@ -42,19 +43,12 @@ final class ItemViewController: UIViewController {
     private func setLayout() {
         self.view.addSubview(collectionView)
         collectionView.snp.makeConstraints {
-            $0.top.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(calculateCellHeight())
+            $0.top.equalToSuperview().offset(carrotInset.top) // 상단 여백 추가
+            $0.leading.trailing.equalToSuperview() // 수평 여백
+            $0.bottom.equalToSuperview().offset(-carrotInset.bottom) 
         }
     }
     
-    private func setCollectionViewLayout() {
-        let flowLayout = UICollectionViewFlowLayout()
-        let screenWidth = UIScreen.main.bounds.width
-        let doubleCellWidth = screenWidth - carrotInset.left - carrotInset.right - carrotInterItemSpacing
-        flowLayout.minimumLineSpacing = carrotLineSpacing
-        flowLayout.minimumInteritemSpacing = carrotInterItemSpacing
-        self.collectionView.setCollectionViewLayout(flowLayout, animated: false)
-    }
 }
 
 extension ItemViewController: UICollectionViewDelegateFlowLayout {

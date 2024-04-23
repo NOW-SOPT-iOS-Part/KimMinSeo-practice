@@ -83,7 +83,7 @@ extension ItemCollectionViewCell {
         itemImageView.image = itemData.itemImg
         nameLabel.text = itemData.name
         priceLabel.text =  itemData.price
-//        heartButton.isSelected = itemData.heartIsSelected
+       // heartButton.isSelected = itemData.heartIsSelected
         self.itemRow = itemRow
     }
 }
