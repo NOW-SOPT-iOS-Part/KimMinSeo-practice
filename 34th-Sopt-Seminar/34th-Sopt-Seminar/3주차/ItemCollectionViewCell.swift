@@ -9,7 +9,7 @@ final class ItemCollectionViewCell: UICollectionViewCell {
     static let identifier = "ItemCollectionViewCell"
     
     weak var delegate: ItemCollectoinViewCellDelegate?
-    private var itemRow: Int = 0 
+    var itemRow: Int?
     
     private let itemImageView = UIImageView()
     
@@ -34,7 +34,8 @@ final class ItemCollectionViewCell: UICollectionViewCell {
     private lazy var heartButton: UIButton = {
         let button = UIButton()
         button.setImage(.love, for: .normal)
-        button.setImage(UIImage(systemName: "heart.fill"), for: .selected)
+        button.setImage(UIImage(resource: .love2), for: .selected)
+        button.addTarget(self, action: #selector(heartButtonDidTap), for: .touchUpInside)
         return button
     }()
     
@@ -45,6 +46,11 @@ final class ItemCollectionViewCell: UICollectionViewCell {
         setLayout()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.heartButton.isSelected = false
+    }
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -76,6 +82,18 @@ final class ItemCollectionViewCell: UICollectionViewCell {
             $0.size.equalTo(16)
         }
     }
+    
+    @objc func heartButtonDidTap() {
+        self.heartButton.isSelected.toggle()
+        if let itemRow {
+            self.delegate?.heartButtonDidTapEvent(
+                state: self.heartButton.isSelected,
+                row: itemRow
+            )
+        }
+    }
+    
+    
 }
 
 extension ItemCollectionViewCell {
@@ -83,7 +101,7 @@ extension ItemCollectionViewCell {
         itemImageView.image = itemData.itemImg
         nameLabel.text = itemData.name
         priceLabel.text =  itemData.price
-       // heartButton.isSelected = itemData.heartIsSelected
+        heartButton.isSelected = itemData.heartIsSelected
         self.itemRow = itemRow
     }
 }
