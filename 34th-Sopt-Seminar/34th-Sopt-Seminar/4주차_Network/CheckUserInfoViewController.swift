@@ -29,7 +29,7 @@ final class CheckUserInfoViewController: UIViewController {
             case .success(let data):
                 guard let data = data as? UserInfoResponseModel else {
                     return }
-                self?.idLabel.text = data.data.authenticationId
+                self?.idLabel.text = data.data.authenticationId 
                 self?.nickNameLabel.text = data.data.nickname
                 self?.phoneNumberLabel.text = data.data.phone
             case .requestErr:
