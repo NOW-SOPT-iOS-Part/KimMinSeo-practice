@@ -1,6 +1,8 @@
 import UIKit
 import SnapKit
 
+
+
 final class ItemViewController: UIViewController {
     
     private var itemData = ItemModel.dummy()
@@ -45,9 +47,11 @@ final class ItemViewController: UIViewController {
         collectionView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(carrotInset.top) // 상단 여백 추가
             $0.leading.trailing.equalToSuperview() // 수평 여백
-            $0.bottom.equalToSuperview().offset(-carrotInset.bottom) 
+            $0.bottom.equalToSuperview().offset(-carrotInset.bottom)
         }
     }
+    
+   
     
 }
 
@@ -69,6 +73,7 @@ extension ItemViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return carrotInset
     }
+    
 }
 
 extension ItemViewController: UICollectionViewDataSource {
@@ -82,3 +87,5 @@ extension ItemViewController: UICollectionViewDataSource {
         return cell
     }
 }
+
+
