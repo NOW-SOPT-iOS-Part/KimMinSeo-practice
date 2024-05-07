@@ -18,6 +18,22 @@ final class WelcomeViewController: UIViewController {
     private lazy var mainButton = UIButton()
     private lazy var backToLoginButton = UIButton()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setStyle()
+        setLayout()
+        self.view.backgroundColor = .white
+        
+        //백 버튼 없애기
+        self.navigationController?.isNavigationBarHidden = true
+        [imageView, welcomeLabel, mainButton, backToLoginButton].forEach{
+            self.view.addSubview($0)
+        }
+        
+        bindID()
+    }
+    
     private func setLayout() {
         [imageView, welcomeLabel, mainButton, backToLoginButton].forEach { [weak self] view in
             guard let self = self else { return }
@@ -112,18 +128,6 @@ final class WelcomeViewController: UIViewController {
         self.id = id
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setStyle()
-        setLayout()
-        self.view.backgroundColor = .white
-        [imageView, welcomeLabel, mainButton, backToLoginButton].forEach{
-            self.view.addSubview($0)
-        }
-        
-        bindID()
-    }
     
 
     //이전 화면으로 가기
