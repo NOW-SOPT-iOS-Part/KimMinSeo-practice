@@ -16,11 +16,13 @@ final class LoginViewController: UIViewController{
     private let idTextField = UITextField()
     private let passwordTextField = UITextField()
     private lazy var loginButton = UIButton()
+    private let joinAskLabel = UILabel()
+    private let joinLabel = UIButton()
     
     
     //auto layout
     private func setLayout() {
-        [titleLabel, idTextField, passwordTextField, loginButton].forEach { [weak self] view in
+        [titleLabel, idTextField, passwordTextField, loginButton, joinLabel].forEach { [weak self] view in
             guard let self = self else { return }
             self.view.addSubview(view)
         }
@@ -53,6 +55,13 @@ final class LoginViewController: UIViewController{
             $0.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(58)
         }
+        
+        
+        joinLabel.snp.makeConstraints {
+            $0.top.equalTo(loginButton.snp.bottom).offset(15)
+            $0.leading.trailing.equalToSuperview()
+        }
+
     }
     func setStyle(){
         //타이틀 텍스트
@@ -98,6 +107,18 @@ final class LoginViewController: UIViewController{
             $0.addTarget(self, action: #selector(loginButtonDidTap), for: .touchUpInside)
         }
         
+        joinLabel.do {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.setTitle("아직 계정이 없으신가요? 회원가입 하기", for: .normal)
+            $0.setTitleColor(.grey400, for: .normal)
+            $0.titleLabel?.font = UIFont(name: "Pretendard-Semibold", size: 14)
+            $0.underlineTitle(forTitle: $0.titleLabel?.text ?? "")
+            $0.underlineTitle(forTitle: "회원가입 하기")
+            $0.addTarget(self, action: #selector(joinButtonDidTap), for: .touchUpInside)
+            
+        }
+        
+        
     }
 
 
@@ -107,6 +128,10 @@ final class LoginViewController: UIViewController{
         pushToWelcomeVC()
     }
     
+    @objc
+    private func joinButtonDidTap() {
+        pushToWelcomeJoin()
+    }
     
     //모달 방식
     private func presentToWelcomeVC(){
@@ -125,6 +150,12 @@ final class LoginViewController: UIViewController{
         self.navigationController?
             .pushViewController(welcomeViewController, animated:true)
     }
+    
+    private func pushToWelcomeJoin(){
+        let joinViewController = SignUpViewController()
+        self.navigationController?
+            .pushViewController(joinViewController, animated:true)
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,5 +164,19 @@ final class LoginViewController: UIViewController{
         self.view.backgroundColor = .white
     
         
+    }
+}
+
+extension UIButton {
+ 
+    func underlineTitle(forTitle: String) {
+        guard let buttonTitle = self.titleLabel?.text else { return }
+        
+        let rangeToUnderLine = (buttonTitle as NSString).range(of: forTitle)
+        
+        let underLineTitle = NSMutableAttributedString(string: buttonTitle)
+        underLineTitle.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: rangeToUnderLine)
+        
+        self.setAttributedTitle(underLineTitle, for: .normal)
     }
 }

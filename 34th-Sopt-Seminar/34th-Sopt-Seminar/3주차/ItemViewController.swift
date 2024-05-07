@@ -28,6 +28,7 @@ final class ItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+    
         setLayout()
         register()
         setDelegate()

@@ -88,8 +88,6 @@ class ScrollViewController: UIViewController {
             $0.height.equalTo(redView)
             $0.width.equalTo(redView)
         }
-        
-        
 
     }
     override func viewDidLoad() {
